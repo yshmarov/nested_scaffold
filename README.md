@@ -7,7 +7,6 @@ A scaffold command that generates a set of perfectly working nested resource for
 * Generates a nested child resource with a single command
 * Generates a beautifully working bunch of code
 * Automatically generates the appropriate model associations for ActiveRecord
-* Haml ready
 
 ## Rails versions
 
