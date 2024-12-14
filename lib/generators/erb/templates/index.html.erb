@@ -1,9 +1,13 @@
 <h1>Listing <%= plural_table_name %></h1>
 
+<%%= link_to 'New <%= human_name %>', new_<%= nested_parent_name %>_<%= singular_table_name %>_path(params[:<%= nested_parent_name %>_id]) %>
+
 <table>
   <tr>
 <% for attribute in attributes -%>
-    <th><%= attribute.human_name %></th>
+    <th>
+      <%= attribute.human_name %>
+    </th>
 <% end -%>
     <th></th>
     <th></th>
@@ -13,15 +17,19 @@
 <%% @<%= plural_table_name %>.each do |<%= singular_table_name %>| %>
   <tr>
 <% for attribute in attributes -%>
-    <td><%%= <%= singular_table_name %>.<%= attribute.name %> %></td>
+    <td>
+      <%%= <%= singular_table_name %>.<%= attribute.name %> %>
+    </td>
 <% end -%>
-    <td><%%= link_to 'Show', [<%= singular_table_name %>.<%= nested_parent_name %>, <%= singular_table_name %>] %></td>
-    <td><%%= link_to 'Edit', edit_<%= nested_parent_name %>_<%= singular_table_name %>_path(<%= singular_table_name %>.<%= nested_parent_name %>, <%= singular_table_name %>) %></td>
-    <td><%%= button_to 'Destroy', [<%= singular_table_name %>.<%= nested_parent_name %>, <%= singular_table_name %>], method: :delete, data: { turbo_confirm: 'Are you sure?' } %></td>
+    <td>
+      <%%= link_to 'Show', [<%= singular_table_name %>.<%= nested_parent_name %>, <%= singular_table_name %>] %>
+    </td>
+    <td>
+      <%%= link_to 'Edit', edit_<%= nested_parent_name %>_<%= singular_table_name %>_path(<%= singular_table_name %>.<%= nested_parent_name %>, <%= singular_table_name %>) %>
+    </td>
+    <td>
+      <%%= button_to 'Destroy', [<%= singular_table_name %>.<%= nested_parent_name %>, <%= singular_table_name %>], method: :delete, data: { turbo_confirm: 'Are you sure?' } %>
+    </td>
   </tr>
 <%% end %>
 </table>
-
-<br />
-
-<%%= link_to 'New <%= human_name %>', new_<%= nested_parent_name %>_<%= singular_table_name %>_path(params[:<%= nested_parent_name %>_id]) %>
