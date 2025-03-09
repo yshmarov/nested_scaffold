@@ -10,7 +10,7 @@ A scaffold command that generates a set of perfectly working nested resource for
 
 ## Rails versions
 
-4.2, 5.0, 5.1, 5.2
+7+
 
 ## Install
 
@@ -50,9 +50,9 @@ Basically same as the original scaffold.
 
 ## TODO / known issues
 
-- namespace (who needs?)
-- third party orms
-- fixture replacements
+- remove namespace
+- deep nested resources like organization/project/task
+- model nesting? Organization::Project::Task
 
 ## Contributing to nested_scaffold
 

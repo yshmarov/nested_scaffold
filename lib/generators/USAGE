@@ -2,7 +2,7 @@ Description:
     Generates nested scaffold
 
 Example:
-    rails g nested_scaffold group/user name:string age:integer
+    rails g nested_scaffold project/task name:string age:integer
 
     This will create:
         user {model, controller, helper, views, tests}
