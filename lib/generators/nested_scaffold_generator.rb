@@ -20,7 +20,7 @@ module NestedScaffold
       def add_resource_route
         return if options[:actions].present?
         route_config = "resources :#{plural_nested_parent_name} do\n" \
-                       "  resources :#{file_name.pluralize}\n" \
+                       "  resources :#{file_name.pluralize}, module: :#{plural_nested_parent_name}\n" \
                        "end\n"
         route route_config
 
