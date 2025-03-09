@@ -1,4 +1,4 @@
-class <%= controller_class_name %>Controller < Organizations::BaseController
+class <%= controller_class_name %>Controller < ApplicationController
   before_action :set_<%= nested_parent_name %>
   before_action :set_<%= singular_table_name %>, only: [:show, :edit, :update, :destroy]
 
@@ -57,7 +57,6 @@ class <%= controller_class_name %>Controller < Organizations::BaseController
       <%= "@#{singular_name} = @#{nested_parent_name}.#{plural_name}.find(params[:id])" %>
     end
 
-    # Only allow a trusted parameter "white list" through.
     def <%= "#{singular_table_name}_params" %>
       <%- if attributes_names.empty? -%>
       params.fetch(:<%= singular_table_name %>, {})

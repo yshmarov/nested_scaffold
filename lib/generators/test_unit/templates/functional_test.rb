@@ -2,9 +2,6 @@ require 'test_helper'
 
 class <%= controller_class_name %>ControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @user = users(:one)
-    sign_in @user
-    
     @<%= nested_parent_name %> = <%= plural_nested_parent_name %>(:one)
     @<%= singular_table_name %> = <%= table_name %>(:one)
   end
