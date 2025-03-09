@@ -26,7 +26,7 @@ module NestedScaffold
     end
 
     def controller_class_path
-      []
+      [nested_parent_name.pluralize]
     end
   end
 end
