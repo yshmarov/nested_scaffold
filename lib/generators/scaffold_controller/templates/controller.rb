@@ -1,4 +1,4 @@
-class <%= controller_class_name %>Controller < ApplicationController
+class <%= controller_class_name %>Controller < Organizations::BaseController
   before_action :set_<%= nested_parent_name %>
   before_action :set_<%= singular_table_name %>, only: [:show, :edit, :update, :destroy]
 
