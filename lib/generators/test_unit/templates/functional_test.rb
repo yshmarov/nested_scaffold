@@ -2,6 +2,10 @@ require 'test_helper'
 
 class <%= controller_class_name %>ControllerTest < ActionDispatch::IntegrationTest
   setup do
+    <% if nested_parent_name.downcase == "organization" %>
+    @user = users(:one)
+    sign_in @user
+    <% end %>
     @<%= nested_parent_name %> = <%= plural_nested_parent_name %>(:one)
     @<%= singular_table_name %> = <%= table_name %>(:one)
   end
