@@ -2,4 +2,4 @@
 
 <%%= render 'form' %>
 
-<%%= link_to 'Back', <%= nested_parent_name %>_<%= index_helper %>_path(@<%= singular_table_name %>.<%= nested_parent_name %>) %>
+<%%= link_to 'Back', [@<%= singular_table_name %>.<%= nested_parent_name %>, :<%= plural_table_name %>] %>

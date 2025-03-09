@@ -1,6 +1,6 @@
 <h1>Listing <%= plural_table_name %></h1>
 
-<%%= link_to 'New <%= human_name %>', new_<%= nested_parent_name %>_<%= singular_table_name %>_path(params[:<%= nested_parent_name %>_id]) %>
+<%%= link_to 'New <%= human_name %>', [:new, @<%= nested_parent_name %>, :<%= singular_table_name %>] %>
 
 <table>
   <tr>
@@ -25,7 +25,7 @@
       <%%= link_to 'Show', [<%= singular_table_name %>.<%= nested_parent_name %>, <%= singular_table_name %>] %>
     </td>
     <td>
-      <%%= link_to 'Edit', edit_<%= nested_parent_name %>_<%= singular_table_name %>_path(<%= singular_table_name %>.<%= nested_parent_name %>, <%= singular_table_name %>) %>
+      <%%= link_to 'Edit', [:edit, <%= singular_table_name %>.<%= nested_parent_name %>, <%= singular_table_name %>] %>
     </td>
     <td>
       <%%= button_to 'Destroy', [<%= singular_table_name %>.<%= nested_parent_name %>, <%= singular_table_name %>], method: :delete, data: { turbo_confirm: 'Are you sure?' } %>
