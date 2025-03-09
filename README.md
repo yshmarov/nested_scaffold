@@ -4,9 +4,9 @@ A scaffold command that generates a set of perfectly working nested resource for
 
 ## Features
 
-* Generates a nested child resource with a single command
-* Generates a beautifully working bunch of code
-* Automatically generates the appropriate model associations for ActiveRecord
+- Generates a nested child resource with a single command
+- Generates a beautifully working bunch of code
+- Automatically generates the appropriate model associations for ActiveRecord
 
 ## Rails versions
 
@@ -40,9 +40,9 @@ While "Post" model exists,
 
 This will create:
 
-* comment {model, controller, helper, views, tests}
-* nested resource route
-* Post.has_many :comments association
+- comment {model, controller, helper, views, tests}
+- nested resource route
+- Post.has_many :comments association
 
 ## Options
 
@@ -50,9 +50,9 @@ Basically same as the original scaffold.
 
 ## TODO / known issues
 
-* namespace (who needs?)
-* third party orms
-* fixture replacements
+- namespace (who needs?)
+- third party orms
+- fixture replacements
 
 ## Contributing to nested_scaffold
 
