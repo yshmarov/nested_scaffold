@@ -11,11 +11,6 @@ module NestedScaffold
       # override ScaffoldGenerator
       hook_for :scaffold_controller, required: true
 
-      # Ensure assets get created with the correct name
-      hook_for :assets, in: :rails do |source, generator|
-        source.invoke generator, [ source.file_name.pluralize ]
-      end
-
       # override ModelGenerator
       hook_for :orm, required: true
 

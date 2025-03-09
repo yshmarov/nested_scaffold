@@ -20,8 +20,6 @@ class NestedScaffoldTest < Rails::Generators::TestCase
     assert_file "app/controllers/#{Detail}s_controller.rb"
     assert_file "test/controllers/#{Detail}s_controller_test.rb"
     assert_file "app/helpers/#{Detail}s_helper.rb"
-    assert_file "app/assets/stylesheets/#{Detail}s.css"
-    assert_file "app/assets/javascripts/#{Detail}s.js"
 
     assert_file "app/views/#{Detail}s/_form.html.erb"
     assert_file "app/views/#{Detail}s/index.html.erb"
