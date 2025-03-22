@@ -36,6 +36,23 @@ module NestedScaffold
           end
         end
       end
+
+      def add_to_navigation
+        return unless File.exist?("app/views/shared/_sidebar_links.html.erb")
+        
+        append_to_file "app/views/shared/_sidebar_links.html.erb" do
+          <<-ERB
+<%= active_link_to #{nested_parent_name}_#{index_helper(type: :path)}(@#{nested_parent_name}), class_active: "bg-gray-200", class: "w-full items-center btn btn-transparent" do %>
+  <div>
+    <%= inline_svg_tag "svg/question-mark-circle.svg", class: "size-5" %>
+  </div>
+  <div>
+  #{plural_table_name.titleize}
+  </div>
+<% end %>
+          ERB
+        end
+      end
     end
   end
 end
