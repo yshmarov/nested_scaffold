@@ -42,14 +42,7 @@ module NestedScaffold
         
         append_to_file "app/views/shared/_sidebar_links.html.erb" do
           <<-ERB
-<%= active_link_to #{nested_parent_name}_#{index_helper(type: :path)}(@#{nested_parent_name}), class_active: "bg-gray-200", class: "w-full items-center btn btn-transparent" do %>
-  <div>
-    <%= inline_svg_tag "svg/question-mark-circle.svg", class: "size-5" %>
-  </div>
-  <div>
-  #{plural_table_name.titleize}
-  </div>
-<% end %>
+<%= nav_link "#{plural_table_name.titleize}", #{nested_parent_name}_#{index_helper(type: :path)}(@#{nested_parent_name}), icon: "svg/question-mark-circle.svg" %>
           ERB
         end
       end

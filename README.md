@@ -1,6 +1,6 @@
 # nested_scaffold
 
-A scaffold command that generates a set of perfectly working nested resource for Rails 4.2 and 5.
+A scaffold command that generates a set of perfectly working nested resource for Rails 7+.
 
 ## Features
 
@@ -53,6 +53,7 @@ Basically same as the original scaffold.
 - remove namespace
 - deep nested resources like organization/project/task
 - model nesting? Organization::Project::Task
+- jbuilder routes are singular, when they have to be plural
 
 ## Contributing to nested_scaffold
 
