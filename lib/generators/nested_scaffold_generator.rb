@@ -21,7 +21,13 @@ module NestedScaffold
         return if options[:actions].present?
 
         in_root do
-          if File.read('config/routes.rb').include?("resources :#{plural_nested_parent_name} do")
+          if File.read('config/routes.rb').include?("scope module: :#{plural_nested_parent_name} do")
+            inject_into_file(
+              'config/routes.rb',
+              "      resources :#{file_name.pluralize}\n",
+              after: "scope module: :#{plural_nested_parent_name} do\n"
+            )
+          elsif File.read('config/routes.rb').include?("resources :#{plural_nested_parent_name} do")
             inject_into_file(
               'config/routes.rb',
               "    resources :#{file_name.pluralize}, module: :#{plural_nested_parent_name}\n",
