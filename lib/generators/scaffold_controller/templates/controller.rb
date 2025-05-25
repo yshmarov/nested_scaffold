@@ -31,7 +31,7 @@ class <%= controller_class_name %>Controller < ApplicationController
     if @<%= singular_name %>.save
       redirect_to([@<%= singular_name %>.<%= nested_parent_name %>, @<%= singular_name %>], notice: '<%= human_name %> was successfully created.')
     else
-      render action: 'new'
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -40,7 +40,7 @@ class <%= controller_class_name %>Controller < ApplicationController
     if @<%= singular_name %>.update(<%= singular_name %>_params)
       redirect_to([@<%= singular_name %>.<%= nested_parent_name %>, @<%= singular_name %>], notice: '<%= human_name %> was successfully updated.')
     else
-      render action: 'edit'
+      render :edit, status: :unprocessable_entity
     end
   end
 
@@ -52,7 +52,6 @@ class <%= controller_class_name %>Controller < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     <% unless nested_parent_name.downcase == "organization" %>
     def set_<%= nested_parent_name %>
       @<%= nested_parent_name %> = <%= orm_class.find(nested_parent_class_name, "params[:#{nested_parent_id}]") %>
