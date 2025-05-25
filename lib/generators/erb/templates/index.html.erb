@@ -1,4 +1,4 @@
-<h1>Listing <%= plural_table_name %></h1>
+<h1><%= plural_table_name.humanize %></h1>
 
 <%%= link_to 'New <%= human_name %>', [:new, @<%= nested_parent_name %>, :<%= singular_table_name %>] %>
 

@@ -1,27 +1,13 @@
-<% if Rails::VERSION::MAJOR >= 5 && Rails::VERSION::MINOR >= 1 -%>
-<%%= form_with(model: [@<%= singular_table_name %>.<%= nested_parent_name %>, @<%= singular_table_name %>]) do |f| %>
-<% else -%>
-<%%= form_for([@<%= singular_table_name %>.<%= nested_parent_name %>, @<%= singular_table_name %>]) do |f| %>
-<% end -%>
-  <%% if @<%= singular_table_name %>.errors.any? %>
-    <div id="error_explanation">
-      <h2><%%= pluralize(@<%= singular_table_name %>.errors.count, "error") %> prohibited this <%= singular_table_name %> from being saved:</h2>
-
-      <ul>
-      <%% @<%= singular_table_name %>.errors.full_messages.each do |msg| %>
-        <li><%%= msg %></li>
-      <%% end %>
-      </ul>
-    </div>
-  <%% end %>
+<%%= form_with(model: [@<%= singular_table_name %>.<%= nested_parent_name %>, @<%= singular_table_name %>]) do |form| %>
+  <%%= render "shared/errors", object: form.object %>
 
 <% for attribute in attributes -%>
   <div class="field">
-    <%%= f.label :<%= attribute.name %> %><br />
-    <%%= f.<%= attribute.field_type %> :<%= attribute.name %> %>
+    <%%= form.label :<%= attribute.name %> %>
+    <%%= form.<%= attribute.field_type %> :<%= attribute.name %>, class: "form-input" %>
   </div>
 <% end -%>
   <div class="actions">
-    <%%= f.submit %>
+    <%%= form.submit %>
   </div>
 <%% end %>
