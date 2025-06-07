@@ -1,5 +1,6 @@
-<h1>New <%= singular_table_name %></h1>
+<%% content_for :title, "New <%= human_name.downcase %>" %>
 
-<%%= render 'form' %>
-
-<%%= link_to 'Back', [@<%= singular_table_name %>.<%= nested_parent_name %>, :<%= plural_table_name %>] %>
+<%%= render PageComponent.new(title: "New <%= human_name.downcase %>") do |component| %>
+  <%%= render "form", <%= singular_table_name %>: @<%= singular_table_name %> %>
+  <%%= link_to "Cancel", [@<%= singular_table_name %>.<%= nested_parent_name %>, :<%= plural_table_name %>], class: "du-btn du-btn-secondary" %>
+<%% end %>

@@ -1,6 +1,10 @@
-<p id="notice"><%%= notice %></p>
+<%% content_for :title, <%= class_name %>.model_name.human %>
 
-<%%= render '<%= singular_table_name %>', <%= singular_table_name %>: @<%= singular_table_name %> %>
+<%%= render PageComponent.new(title: <%= class_name %>.model_name.human) do |component| %>
+  <%% component.with_action_list do %>
+    <%%= link_to t("shared.actions.edit"), [:edit, @<%= singular_table_name %>.<%= nested_parent_name %>, @<%= singular_table_name %>], class: "du-btn du-btn-primary" %>
+    <%%= link_to t("shared.actions.back"), [@<%= singular_table_name %>.<%= nested_parent_name %>, :<%= plural_table_name %>], class: "du-btn du-btn-secondary" %>
+  <%% end %>
 
-<%%= link_to 'Edit', [:edit, @<%= singular_table_name %>.<%= nested_parent_name %>, @<%= singular_table_name %>] %> |
-<%%= link_to 'Back', [@<%= singular_table_name %>.<%= nested_parent_name %>, :<%= plural_table_name %>] %>
+  <%%= render '<%= singular_table_name %>', <%= singular_table_name %>: @<%= singular_table_name %> %>
+<%% end %>
